@@ -12,8 +12,8 @@ builder.Services.AddDbContext<DatabaseContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 }); 
 
-builder.Services.AddTransient<IImageDal,ImageDal>();
-builder.Services.AddTransient<IFileHelper,FileHelper>();
+builder.Services.AddScoped<IImageDal,ImageDal>();
+builder.Services.AddScoped<IFileHelper,FileHelper>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
