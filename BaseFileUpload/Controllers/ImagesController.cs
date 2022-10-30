@@ -35,10 +35,16 @@ namespace BaseFileUpload.Controllers
             return Ok();
         }
 
-        [HttpGet("getall")]
+        [HttpGet("getallimage")]
         public IActionResult GetAll()
         {
             var result= _imageDal.GetAll();
+            return Ok(result);
+        }
+        [HttpGet("getbyfilter")]
+        public IActionResult GetByFilter(int id)
+        {
+            var result = _imageDal.Get(x=>x.Id==id);
             return Ok(result);
         }
 
